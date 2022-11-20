@@ -1,10 +1,12 @@
-# ForumAei
+# ForumAEI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+A WIP project to develop a fully functional forum for IT students at Silesian University of Technology
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Firtly, you have to have an [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0. installed for the project.
+ Then in a terminal go to the directory holding the project and run `npm install`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Code scaffolding
 
@@ -25,3 +27,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
