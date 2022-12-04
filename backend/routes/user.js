@@ -22,6 +22,17 @@ userRoute.route('/').get((req, res) => {
     }
   })
 })
+
+// Get user by email
+userRoute.route('/findByemail/:email').get((req, res) => {
+  user.find({email:req.params.email},(error, data) => {
+  if (error) {
+    return next(error)
+  } else {
+    res.json(data)
+  }
+})
+})
 // Get user
 userRoute.route('/read-user/:id').get((req, res) => {
     user.findById(req.params.id, (error, data) => {
