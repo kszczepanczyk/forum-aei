@@ -11,8 +11,17 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
-import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { ReportComponent } from './report/report.component';
+import { NewestPostsComponent } from './newest-posts/newest-posts.component';
+import { CategorySectionComponent } from './category-section/category-section.component';
+import { PostSectionComponent } from './post-section/post-section.component';
+import { ArchivesSectionComponent } from './archives-section/archives-section.component';
+import { EditorComponent } from './editor/editor.component';
+import { PostItemComponent } from './post-item/post-item.component';
+import { DropdownDirective } from './dropdown.directive';
+import { PostService } from './post-section/post.service';
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,15 +33,24 @@ import { ReportComponent } from './report/report.component';
     ProfileComponent,
     ArchiveComponent,
     ProfileEditorComponent,
-    ArticleEditorComponent,
-    ReportComponent
+    ReportComponent,
+    NewestPostsComponent,
+    CategorySectionComponent,
+    PostSectionComponent,
+    ArchivesSectionComponent,
+    EditorComponent,
+    PostItemComponent,
+    DropdownDirective,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
