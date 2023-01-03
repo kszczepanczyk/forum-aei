@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ArchiveComponent } from './archive/archive.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { ReportComponent } from './report/report.component';
 import { NewestPostsComponent } from './newest-posts/newest-posts.component';
@@ -31,7 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     CalendarComponent,
     ProfileComponent,
-    ArchiveComponent,
     ProfileEditorComponent,
     ReportComponent,
     NewestPostsComponent,
