@@ -7,7 +7,7 @@
           <p class="text-xs-center">
             <a>Have an account?</a>
           </p>
-          <form>
+          <form (ngSubmit)="submitForm()" [formGroup]="form">
             <fieldset>
             
               <fieldset class="form-group">
@@ -24,7 +24,7 @@
                   class="form-control form-control-lg"
                   type="password" />
               </fieldset>
-              <button class="btn btn-lg btn-primary pull-xs-right" (click)="onSubmit()" type="submit">
+              <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
                 Sign in
               </button>
             </fieldset>

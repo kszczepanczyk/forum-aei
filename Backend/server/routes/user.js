@@ -95,4 +95,5 @@ userRoute.route('/delete-user/:id').delete((req, res, next) => {
     }
   })
 })
+
 module.exports = userRoute;
