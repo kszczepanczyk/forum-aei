@@ -10,7 +10,7 @@ export class AuthApiService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  login(email: string, password: string): Observable<User> {
-    return this._httpClient.get<User>(`http://localhost:8080/findByemail/${email}`);
+  login(email: string, password: string): Observable<User>{
+    return this._httpClient.get<User>(`http://localhost:8080/findWithPassword/${email}/${password}`);
   }
 }

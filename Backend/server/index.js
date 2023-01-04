@@ -9,7 +9,7 @@ const app = express();
 
 // For Build
 app.use(express.static('dist'));
-
+app.use(cors());
 // Import Routes
 // const route = require('./routes/route');
 
@@ -62,7 +62,7 @@ app.use(routePermissions);
 
 // Connect to DB
 // mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useCreateIndex: true }, () => console.log('connected DB'));
-app.listen(process.env.PORT || 4200, () => console.log(`Listening on port ${process.env.PORT ||4200}!`));
+app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT ||8080}!`));
 
 
 

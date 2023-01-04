@@ -1,4 +1,5 @@
-export class User {
+  export class User {
+    public _id: string;
     public permissionLvl: number;
     public email: string;
     public token: string;

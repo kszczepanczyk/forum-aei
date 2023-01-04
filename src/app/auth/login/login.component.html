@@ -7,6 +7,9 @@
           <p class="text-xs-center">
             <a>Have an account?</a>
           </p>
+          <div class="alert alert-danger" *ngIf="error">
+            <p>{{error}}</p>
+          </div>
           <form (ngSubmit)="submitForm()" [formGroup]="form">
             <fieldset>
             
@@ -15,7 +18,8 @@
                   formControlName="email"
                   placeholder="Email"
                   class="form-control form-control-lg"
-                  type="text" />
+                  type="text"
+                  email />
               </fieldset>
               <fieldset class="form-group">
                 <input
@@ -24,8 +28,14 @@
                   class="form-control form-control-lg"
                   type="password" />
               </fieldset>
-              <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+              <button class="btn btn-lg btn-primary pull-xs-right" type="submit" [disabled]="!form.valid">
                 Sign in
+              </button>
+              <button class="btn btn-lg btn btn-outline-primary pull-xs-right" routerLink="register">
+                Sign up
+              </button>
+              <button class="btn btn-lg btn btn-outline-primary pull-xs-right" routerLink="forgotPassword">
+                Forgot password
               </button>
             </fieldset>
           </form>

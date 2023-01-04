@@ -29,25 +29,10 @@ export class AuthService {
       tap((response) => {
         this._authStatusSource.next(true);
         localStorage.setItem('email',response.email);
+        this.router.navigate(['home']);
+        console.log(response);
       })
     )
-    /*let response = new HttpResponse({
-      status: 200,
-      body: {
-        id: '123',
-        username: 'Cloons',
-        email: 'JustynaJaworska@student.polsl.pl',
-        rank: 'user'
-      },
-    })
-    if(response.body){
-      
-      this._authStatusSource.next(true);
-      localStorage.setItem('email',response.body.email);
-      this.router.navigate(['home']);
-      console.log('logged');
-    }
-    return of(response);*/
   }
 
   logout(): void{

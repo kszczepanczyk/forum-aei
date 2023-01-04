@@ -21,7 +21,19 @@ userRoute.route('/add-user').post((req, res, next) => {
       res.json(data)
     }
   })
-});
+})
+
+userRoute.route('/login').post((req, res) => {
+  user.findOne({email: req.body.email, password: req.body.password},(error, data) => {
+    if (error) {
+      return res.status(404).send(error)
+    } else if(!data){
+        res.sendStatus(404)
+    }else{res.status(200).json(data)}
+  })
+
+  
+})
 // Get all user
 userRoute.route('/user').get((req, res) => {
     user.find((error, data) => {
@@ -44,7 +56,7 @@ userRoute.route('/findByemail/:email').get((req, res) => {
 })
 })
 
-userRoute.route('/findWithPassword/:email,:password').get((req, res) => {
+userRoute.route('/findWithPassword/:email/:password').get((req, res) => {
   user.findOne({email: req.params.email, password: req.params.password},(error, data) => {
     if (error) {
       return res.status(404).send(error)
@@ -56,7 +68,7 @@ userRoute.route('/findWithPassword/:email,:password').get((req, res) => {
   
 })
 
-userRoute.route('/findForLogin/:email,:password').get((req, res) => {
+userRoute.route('/findForLogin/:email/:password').get((req, res) => {
   user.findOne({email: req.params.email, password: req.params.password},{password: 0},(error, data) => {
     if (error) {
       return res.status(404).send(error)
