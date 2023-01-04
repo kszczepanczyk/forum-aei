@@ -4,6 +4,6 @@ Serwer odpalamy komendą w terminalu
 
 odpali się pod adresem
 
-http://localhost:8080/
+http://localhost:4200/serverReadme
 
 Pod głównym adresem są dalsze instrukcje działania API
