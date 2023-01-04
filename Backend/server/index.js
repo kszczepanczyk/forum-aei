@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('./db/mongoose');
-
+const cors = require('cors');
 const UserModel = require('./db/models/user');
 
 // instantiate express
@@ -26,6 +26,11 @@ const routeRoles = require('./routes/roles');
 const routeUser = require('./routes/user');
 const route = require('./routes/route');
 
+
+
+
+
+// app.use(cors()); 
 app.use(route);
 app.use(routeUser);
 app.use(routePost);
@@ -37,6 +42,7 @@ app.use(routeReports);
 app.use(routeReactions);
 app.use(routeRanks);
 app.use(routePermissions);
+
 
 
 // const userRoute = require('./routes/user');
@@ -56,7 +62,7 @@ app.use(routePermissions);
 
 // Connect to DB
 // mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useCreateIndex: true }, () => console.log('connected DB'));
-app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
+app.listen(process.env.PORT || 4200, () => console.log(`Listening on port ${process.env.PORT ||4200}!`));
 
 
 
