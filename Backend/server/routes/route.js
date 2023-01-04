@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 // Home page route.
-router.get("/", function (req, res) {
+router.get("/serverReadme", function (req, res) {
   let html = `
   <html>
   <style>
@@ -20,13 +20,16 @@ router.get("/", function (req, res) {
   <p>Url z samą nazwą typu &quot;/post&quot; pobiera wszystkie dane z danej struktury</p>
   <p>Nazwa w url &quot;:cos&quot; jest to parametr i wpisujemy w miejsce parametru jakiś poszukiwany tekst np chcemy id usera to używamy to w taki spos&oacute;b &quot;/findByUserId/1234&quot; dla name /findByUser/Cloons wielkość liter ma znaczenie</p>
   <p>Operacje update and delete operują na automatycznym _id z mongoDB, kt&oacute;re jest innym id niż autorskie id, kt&oacute;re znamy z sql i rozr&oacute;żniamy &quot;_id&quot; i &quot;id&quot; są to dwa r&oacute;żne id i do operacji delete update potrzebne jest te z podłogą</p>
-  <h3 style="color:red">Poniższe adresy to ścieżki względne do wklejenia po "http://localhost:8080/"</h3>
+  <h3 style="color:red">Poniższe adresy to ścieżki względne do wklejenia po "http://localhost:4200/"</h3>
   <h2>Adresy api dla Users</h2>
   <p>/user</p>
   <p>/findByemail/:email</p>
+  <p>/findWithPassword/:email,:password</p>
+  <p>/findForLogin/:email,:password</p>
   <p>&nbsp;/findByUser/:username</p>
   <p>/findByUserId/:idUser</p>
   <p>&nbsp;/update-user/:id</p>
+
   <p>&nbsp;/delete-user/:id</p>
   <p><br></p>
   <h2>Adresy api dla Roless</h2>

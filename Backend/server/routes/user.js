@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const userRoute = express.Router();
 const bodyParser = require("body-parser")
 userRoute.use(bodyParser.urlencoded({
   extended:true
 }));
+
+
+
+app.use(cors());
 
 let user = require('../db/models/user');
 // Add user
@@ -37,6 +42,28 @@ userRoute.route('/findByemail/:email').get((req, res) => {
     res.json(data)
   }
 })
+})
+
+userRoute.route('/findWithPassword/:email,:password').get((req, res) => {
+  user.findOne({email: req.params.email, password: req.params.password},(error, data) => {
+    if (error) {
+      return res.status(404).send(error)
+    } else if(!data){
+        res.sendStatus(404)
+    }else{res.status(200).json(data)}
+  })
+
+  
+})
+
+userRoute.route('/findForLogin/:email,:password').get((req, res) => {
+  user.findOne({email: req.params.email, password: req.params.password},{password: 0},(error, data) => {
+    if (error) {
+      return res.status(404).send(error)
+    } else if(!data){
+        res.sendStatus(404)
+    }else{res.status(200).json(data)}
+  })
 })
 // Get user by username
 userRoute.route('/findByUser/:username').get((req, res) => {
@@ -95,5 +122,4 @@ userRoute.route('/delete-user/:id').delete((req, res, next) => {
     }
   })
 })
-
 module.exports = userRoute;
