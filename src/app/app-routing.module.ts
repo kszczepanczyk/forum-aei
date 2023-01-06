@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArchivesSectionComponent } from './archives-section/archives-section.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
-import { EditorComponent } from './editor/editor.component';
+import { EditorComponent } from './post/editor/editor.component';
 import { HomeComponent } from './home/home.component';
-import { PostDetailsComponent } from './post-details/post-details.component';
-import { PostSectionComponent } from './post-section/post-section.component';
+import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { PostSectionComponent } from './post/post-section/post-section.component';
 
 const routes: Routes = [
   {

@@ -13,16 +13,18 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
 import { ReportComponent } from './report/report.component';
 import { NewestPostsComponent } from './newest-posts/newest-posts.component';
 import { CategorySectionComponent } from './category-section/category-section.component';
-import { PostSectionComponent } from './post-section/post-section.component';
+import { PostSectionComponent } from './post/post-section/post-section.component';
 import { ArchivesSectionComponent } from './archives-section/archives-section.component';
-import { EditorComponent } from './editor/editor.component';
-import { PostItemComponent } from './post-item/post-item.component';
-import { PostService } from './post-section/post.service';
-import { PostDetailsComponent } from './post-details/post-details.component';
+import { EditorComponent } from './post/editor/editor.component';
+import { PostItemComponent } from './post/post-item/post-item.component';
+
+import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
+import { PostService } from './post/post.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     EditorComponent,
     PostItemComponent,
     PostDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

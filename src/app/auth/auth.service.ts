@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { User } from '../models/user.model';
 import { AuthApiService } from './auth-api.service';
 
 
@@ -14,6 +15,7 @@ import { AuthApiService } from './auth-api.service';
 })
 export class AuthService {
   authStatus$: Observable<boolean>;
+  currentUser: User;
 
   private _authStatusSource: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
@@ -31,6 +33,8 @@ export class AuthService {
         localStorage.setItem('email',response.email);
         this.router.navigate(['home']);
         console.log(response);
+        this.currentUser = response;
+        console.log(this.currentUser);
       })
     )
   }
@@ -47,5 +51,9 @@ export class AuthService {
       return of(null);
     }
     return of(email);
+  }
+
+  getCurrentUser(): User {
+    return this.currentUser;
   }
 }

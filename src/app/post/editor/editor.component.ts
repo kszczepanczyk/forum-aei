@@ -1,14 +1,17 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
-import { Post } from '../models/post.model';
-import { User } from '../models/user.model';
-import { PostService } from '../post-section/post.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { TmpPost } from 'src/app/models/tmppost';
+import { Post } from '../../models/post.model';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
+  providers: [DatePipe]
 })
 export class EditorComponent implements OnInit {
   id: number;
@@ -17,7 +20,8 @@ export class EditorComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private postService: PostService,
-              private router: Router) { }
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -28,21 +32,27 @@ export class EditorComponent implements OnInit {
   }
 
   onSubmit(){
-    const newUser = new User(1,"","","","");
-    const newPost = new Post(
-      "slug",
+    let currentDate = new Date();
+    // const addedPost = new Post(
+    //   this.postForm.value['title'],
+    //   this.postForm.value['body'],
+    //   currentDate.toISOString(),
+    //   0,
+    //   this.authService.getCurrentUser(),
+    //   this.postForm.value['category']
+    // )
+    const addedPost = new TmpPost(
+      2,
+      this.authService.currentUser._id,
+      2,
       this.postForm.value['title'],
-      "",
       this.postForm.value['body'],
-      "",
-      "",
-      1,
-      false,
-      newUser,
-      this.postForm.value['category']
-    );
-    this.postService.addPost(this.postForm.value);
-    this.router.navigate(['../dyskusje'],{relativeTo: this.route});
+      currentDate.toISOString()
+    )
+    this.postService.addPost(addedPost).subscribe(resp => {
+      this.router.navigate(['../dyskusje'],{relativeTo: this.route});
+    });
+    
   }
 
   private initForm(){

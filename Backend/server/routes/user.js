@@ -23,17 +23,7 @@ userRoute.route('/add-user').post((req, res, next) => {
   })
 })
 
-userRoute.route('/login').post((req, res) => {
-  user.findOne({email: req.body.email, password: req.body.password},(error, data) => {
-    if (error) {
-      return res.status(404).send(error)
-    } else if(!data){
-        res.sendStatus(404)
-    }else{res.status(200).json(data)}
-  })
 
-  
-})
 // Get all user
 userRoute.route('/user').get((req, res) => {
     user.find((error, data) => {

@@ -12,7 +12,6 @@
           </div>
           <form (ngSubmit)="submitForm()" [formGroup]="form">
             <fieldset>
-            
               <fieldset class="form-group">
                 <input
                   formControlName="email"
@@ -30,9 +29,6 @@
               </fieldset>
               <button class="btn btn-lg btn-primary pull-xs-right" type="submit" [disabled]="!form.valid">
                 Sign in
-              </button>
-              <button class="btn btn-lg btn btn-outline-primary pull-xs-right" routerLink="register">
-                Sign up
               </button>
               <button class="btn btn-lg btn btn-outline-primary pull-xs-right" routerLink="forgotPassword">
                 Forgot password

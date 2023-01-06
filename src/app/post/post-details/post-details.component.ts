@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Post } from '../models/post.model';
-import { PostService } from '../post-section/post.service';
+import { Post } from '../../models/post.model';
+import { PostService } from '../post.service';
+
 
 @Component({
   selector: 'app-post-details',
@@ -21,7 +22,7 @@ export class PostDetailsComponent implements OnInit {
     .subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.post = this.postService.getPostById(this.id);
+        //this.post = this.postService.getPostById(this.id);
       }
     )
   }
