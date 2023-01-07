@@ -1,32 +1,34 @@
 <div class="auth-page">
-    <div class="container page">
+    <div class="container page d-flex justify-content-center align-items-center min-vh-100">
       <div class="row">
   
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign in</h1>
-          <p class="text-xs-center">
-            <a>Have an account?</a>
-          </p>
+        <div class="login-box">
+          <h1 class="text-login">Logowanie</h1>
           <form>
             <fieldset>
             
               <fieldset class="form-group">
                 <input
                   formControlName="email"
-                  placeholder="Email"
+                  placeholder="Adres e-mail"
                   class="form-control form-control-lg"
                   type="text" />
               </fieldset>
               <fieldset class="form-group">
                 <input
                   formControlName="password"
-                  placeholder="Password"
+                  placeholder="Hasło"
                   class="form-control form-control-lg"
                   type="password" />
+              
               </fieldset>
-              <button class="btn btn-lg btn-primary pull-xs-right" (click)="onSubmit()" type="submit">
-                Sign in
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="button-login btn btn-lg pull-xs-right " (click)="onSubmit()" type="submit">
+                Zaloguj
               </button>
+      
+            </div>
+            <a href=""> Zapomniałeś hasła?</a>
             </fieldset>
           </form>
         </div>
