@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const reportRoute = express.Router();
 const bodyParser = require("body-parser")
 reportRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let report = require('../db/models/report');
 // Add report
 reportRoute.route('/report/add-report').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  report.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {

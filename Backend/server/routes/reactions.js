@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const reactionRoute = express.Router();
 const bodyParser = require("body-parser")
 reactionRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let reaction = require('../db/models/reaction');
 // Add reaction
 reactionRoute.route('/reaction/add-reaction').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  reaction.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -19,7 +20,7 @@ reactionRoute.route('/reaction/add-reaction').post((req, res, next) => {
 });
 // Get all reaction
 reactionRoute.route('/reaction').get((req, res) => {
-    reaction.find((error, data) => {
+    reaction.find({},{_id:0,type:1,post_id:1},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -29,8 +30,8 @@ reactionRoute.route('/reaction').get((req, res) => {
 })
 
 // Get reaction by reactionname
-reactionRoute.route('/reaction/findByreactiontype/:type').get((req, res) => {
-  reaction.find({type:req.params.type},(error, data) => {
+reactionRoute.route('/reaction/findByreactiontype/:type,:post_id').post((req, res) => {
+  reaction.find({type:req.params.type,post_id:req.params.post_id},{_id:0,user_id:1},(error, data) => {
   if (error) {
     return next(error)
   } else {
@@ -38,9 +39,9 @@ reactionRoute.route('/reaction/findByreactiontype/:type').get((req, res) => {
   }
 })
 })
-// Get reaction by reaction id ale autorskie
-reactionRoute.route('/reaction/findByreactionid/:id').get((req, res) => {
-  reaction.find({id:req.params.id},(error, data) => {
+// Get reaction for post
+reactionRoute.route('/reaction/findByreactionid/:id').post((req, res) => {
+  reaction.find({post_id:req.params.id},{_id:0,type:1},(error, data) => {
   if (error) {
     return next(error)
   } else {

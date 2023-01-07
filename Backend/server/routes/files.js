@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
 const fileRoute = express.Router();
+const cors = require('cors');
 const bodyParser = require("body-parser")
 fileRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let file = require('../db/models/file');
 // Add file
 fileRoute.route('/file/add-file').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  file.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {

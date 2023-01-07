@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const roleRoute = express.Router();
 const bodyParser = require("body-parser")
 roleRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let role = require('../db/models/role');
 // Add role
 roleRoute.route('/role/add-role').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  role.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {

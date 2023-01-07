@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const rankRoute = express.Router();
 const bodyParser = require("body-parser")
 rankRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let rank = require('../db/models/rank');
 // Add rank
 rankRoute.route('/rank/add-rank').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  rank.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {

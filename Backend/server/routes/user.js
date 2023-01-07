@@ -13,20 +13,18 @@ app.use(cors());
 
 let user = require('../db/models/user');
 // Add user
-userRoute.route('/add-user').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+userRoute.route('/add-user').post((req, res,next) => {
+  user.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
       res.json(data)
     }
   })
-})
-
-
+});
 // Get all user
 userRoute.route('/user').get((req, res) => {
-    user.find((error, data) => {
+    user.find({},{_id:0,password:0,idUser:0},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -36,8 +34,8 @@ userRoute.route('/user').get((req, res) => {
 })
 
 // Get user by email
-userRoute.route('/findByemail/:email').get((req, res) => {
-  user.find({email:req.params.email},(error, data) => {
+userRoute.route('/findEmail/:email').post((req, res) => {
+  user.find({email:req.params.email},{_id:0,password:0,idUser:0},(error, data) => {
   if (error) {
     return next(error)
   } else {
@@ -46,8 +44,20 @@ userRoute.route('/findByemail/:email').get((req, res) => {
 })
 })
 
-userRoute.route('/findWithPassword/:email/:password').get((req, res) => {
-  user.findOne({email: req.params.email, password: req.params.password},(error, data) => {
+userRoute.route('/findByemail').post((req, res) => {
+    const email = req.body.email;
+    user.find({email: email},{_id:0,password:0}, (error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.json(data)
+      }
+    });
+  });
+
+//get
+userRoute.route('/findPassword/:email,:password').post((req, res) => {
+  user.findOne({email: req.params.email, password: req.params.password},{_id:0,password:0,idUser:0},(error, data) => {
     if (error) {
       return res.status(404).send(error)
     } else if(!data){
@@ -58,8 +68,9 @@ userRoute.route('/findWithPassword/:email/:password').get((req, res) => {
   
 })
 
-userRoute.route('/findForLogin/:email/:password').get((req, res) => {
-  user.findOne({email: req.params.email, password: req.params.password},{password: 0},(error, data) => {
+//post from email i password
+userRoute.route('/findLogin/:email,:password').post((req, res) => {
+  user.findOne({email: req.params.email, password: req.params.password},{_id:0,password: 0,idUser:0},(error, data) => {
     if (error) {
       return res.status(404).send(error)
     } else if(!data){
@@ -67,9 +78,32 @@ userRoute.route('/findForLogin/:email/:password').get((req, res) => {
     }else{res.status(200).json(data)}
   })
 })
+
+userRoute.route('/findForLogin').post((req, res,next) => {
+  user.findOne({email: req.body.email, password: req.body.password},{_id:0,password: 0,idUser:0},(error, data) => {
+    if (error) {
+      return res.status(404).send(error)
+    } else if(!data){
+        res.sendStatus(404)
+    }else{res.status(200).json(data)}
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Get user by username
-userRoute.route('/findByUser/:username').get((req, res) => {
-  user.find({username:req.params.username},(error, data) => {
+userRoute.route('/findByUser/:username').post((req, res) => {
+  user.find({username:req.params.username},{_id:0,password:0},(error, data) => {
   if (error) {
     return next(error)
   } else {
@@ -78,8 +112,8 @@ userRoute.route('/findByUser/:username').get((req, res) => {
 })
 })
 // Get user by user id ale autorskie
-userRoute.route('/findByUserId/:idUser').get((req, res) => {
-  user.find({idUser:req.params.idUser},(error, data) => {
+userRoute.route('/findByUserId/:idUser').post((req, res) => {
+  user.find({idUser:req.params.idUser},{_id:0,password:0},(error, data) => {
   if (error) {
     return next(error)
   } else {
@@ -87,16 +121,6 @@ userRoute.route('/findByUserId/:idUser').get((req, res) => {
   }
 })
 })
-// Get user
-// userRoute.route('/read-user/:id').get((req, res) => {
-//     user.findById(req.params.id, (error, data) => {
-//     if (error) {
-//       return next(error)
-//     } else {
-//       res.json(data)
-//     }
-//   })
-// })
 
 // Update user
 userRoute.route('/update-user/:id').put((req, res, next) => {

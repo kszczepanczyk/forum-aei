@@ -1,11 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const postRoute = express.Router();
 const bodyParser = require("body-parser")
 postRoute.use(bodyParser.urlencoded({
   extended:true
 }));
 
+//postRoute.use(jsonParser);
+
+var jsonParser = bodyParser.json();
+app.use(cors());
 let post = require('../db/models/post');
 // Add post
 postRoute.route('/post/add-post').post((req, res, next) => {
@@ -19,7 +24,7 @@ postRoute.route('/post/add-post').post((req, res, next) => {
 });
 // Get all post
 postRoute.route('/post').get((req, res) => {
-    post.find((error, data) => {
+    post.find({},{_id:0,title:1,content:1,date_created:1},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -28,9 +33,9 @@ postRoute.route('/post').get((req, res) => {
   })
 })
 
-// Get post by post id ale autorskie
-postRoute.route('/post/findBypost/:idPost').get((req, res) => {
-  post.find({idPost:req.params.idPost},(error, data) => {
+// Get post from user
+postRoute.route('/post/findByUser/:user_id').post((req, res) => {
+  post.find({user_id:req.params.user_id},{_id:0,title:1,content:1,date_created:1},(error, data) => {
   if (error) {
     return next(error)
   } else {

@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const categoryRoute = express.Router();
 const bodyParser = require("body-parser")
 categoryRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let category = require('../db/models/category');
 // Add category
 categoryRoute.route('/category/add-category').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  category.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {

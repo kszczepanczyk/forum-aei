@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const permissionRoute = express.Router();
 const bodyParser = require("body-parser")
 permissionRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+app.use(cors());
 let permission = require('../db/models/permission');
 // Add permission
 permissionRoute.route('/permission/add-permission').post((req, res, next) => {
-  post.create(req.body, (error, data) => {
+  permission.create(req.body, (error, data) => {
     if (error) {
       return next(error)
     } else {
