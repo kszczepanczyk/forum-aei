@@ -6,7 +6,7 @@ const bodyParser = require("body-parser")
 userRoute.use(bodyParser.urlencoded({
   extended:true
 }));
-
+userRoute.use(express.json());
 
 
 app.use(cors());
@@ -14,14 +14,27 @@ app.use(cors());
 let user = require('../db/models/user');
 // Add user
 userRoute.route('/add-user').post((req, res,next) => {
-  user.create(req.body, (error, data) => {
+  user.create({idUser:req.body.idUser,email:req.body.email,username:req.body.username,rank:req.body.rank,password:req.body.password}, (error, data) => {
     if (error) {
       return next(error)
     } else {
-      res.json(data)
+      res.json(req.body)
+     
     }
   })
 });
+
+
+// userRoute.route('/add-user').post((req, res,next) => {
+//   user.create(req.body, (error, data) => {
+//     if (error) {
+//       return next(error)
+//     } else {
+//       res.json(req.body)
+     
+//     }
+//   })
+// });
 // Get all user
 userRoute.route('/user').get((req, res) => {
     user.find({},{_id:0,password:0,idUser:0},(error, data) => {
