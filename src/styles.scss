@@ -2,3 +2,15 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+
+
+body{
+    font-family: 'Roboto';
+   background-color: #FDF7FF;
+        height: 100vh;
+        text-align: center;
+}
