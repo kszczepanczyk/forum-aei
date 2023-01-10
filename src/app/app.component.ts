@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,11 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public authService: AuthService){}
+  logged: boolean = false;
   title = 'forum-aei';
 
+  userLoggedIn(loggedIn: boolean){
+    this.logged = loggedIn;
+    console.log(this.logged)
+  }
 }

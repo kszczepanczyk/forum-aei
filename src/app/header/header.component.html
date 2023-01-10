@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg nav-style">
     <div class="container">
-    <a class="navbar-brand" routerLink="home">AEI-FORUM</a>
+    <a class="navbar-brand" [routerLink]="['/']">AEI-FORUM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="home">Home</a>
+          <a class="nav-link" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Powiadomienia</a>
@@ -25,7 +25,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" (click)="onLogout()">Wyloguj</a>
+            <a class="nav-link" href="#">Wyloguj</a>
           </li>
       </ul>
     </div>

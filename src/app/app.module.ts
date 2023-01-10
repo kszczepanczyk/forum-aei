@@ -6,25 +6,22 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ArchiveComponent } from './archive/archive.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { ReportComponent } from './report/report.component';
 import { NewestPostsComponent } from './newest-posts/newest-posts.component';
 import { CategorySectionComponent } from './category-section/category-section.component';
-import { PostSectionComponent } from './post/post-section/post-section.component';
+import { PostSectionComponent } from './post-section/post-section.component';
 import { ArchivesSectionComponent } from './archives-section/archives-section.component';
-import { EditorComponent } from './post/editor/editor.component';
-import { PostItemComponent } from './post/post-item/post-item.component';
-
-import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { EditorComponent } from './editor/editor.component';
+import { PostItemComponent } from './post-item/post-item.component';
+import { DropdownDirective } from './dropdown.directive';
+import { PostService } from './post-section/post.service';
+import { PostDetailsComponent } from './post-details/post-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './auth/register/register.component';
-import { AuthService } from './auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from './footer/footer.component';
-import { PostService } from './post/post.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +31,7 @@ import { PostService } from './post/post.service';
     LoginComponent,
     CalendarComponent,
     ProfileComponent,
+    ArchiveComponent,
     ProfileEditorComponent,
     ReportComponent,
     NewestPostsComponent,
@@ -42,19 +40,17 @@ import { PostService } from './post/post.service';
     ArchivesSectionComponent,
     EditorComponent,
     PostItemComponent,
-    PostDetailsComponent,
-    RegisterComponent,
-    FooterComponent
+    DropdownDirective,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule,
-    HttpClientModule
+    NgbModule
   ],
-  providers: [PostService, AuthService],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
