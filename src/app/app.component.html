@@ -1,4 +1,4 @@
 
-<app-login (loggedIn)="userLoggedIn($event)" *ngIf="!logged"></app-login>
-<app-header *ngIf="logged"></app-header>
-<router-outlet *ngIf="logged"></router-outlet>
+<app-header *ngIf="authService.authStatus$ | async"></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="authService.authStatus$ | async"></app-footer>
