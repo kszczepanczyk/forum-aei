@@ -21,7 +21,7 @@ router.get("/serverReadme", function (req, res) {
   <p>Nazwa w url &quot;:cos&quot; jest to parametr i wpisujemy w miejsce parametru jakiś poszukiwany tekst np chcemy id usera to używamy to w taki spos&oacute;b &quot;/findByUserId/1234&quot; dla name /findByUser/Cloons wielkość liter ma znaczenie</p>
   <p>Operacje update and delete operują na automatycznym _id z mongoDB, kt&oacute;re jest innym id niż autorskie id, kt&oacute;re znamy z sql i rozr&oacute;żniamy &quot;_id&quot; i &quot;id&quot; są to dwa r&oacute;żne id i do operacji delete update potrzebne jest te z podłogą</p>
   <h3 style="color:red">Poniższe adresy to ścieżki względne do wklejenia po "http://localhost:8080/"</h3>
-  <h2>Adresy api dla Users</h2>
+  <!-- <h2>Adresy api dla Users</h2>
   <p>/user</p>
   <p>/findEmail/:email</p>
   <p>/findByemail</p>
@@ -105,7 +105,7 @@ router.get("/serverReadme", function (req, res) {
   <p>/category/findBycategorysubjectName/:subjectName</p>
   <p>/category/findBycategoryidThread/:idThread</p>
   <p>/category/update-category/:id</p>
-  <p>/category/delete-category/:id</p>
+  <p>/category/delete-category/:id</p> -->
   </div>
   </html>
   
