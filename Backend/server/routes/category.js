@@ -8,19 +8,43 @@ categoryRoute.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 let category = require('../db/models/category');
+let user=require('../db/models/user')
 // Add category
 categoryRoute.route('/category/add-category').post((req, res, next) => {
-  category.create(req.body, (error, data) => {
+ 
+  user.findOne({username:req.body.username},{_id:0,idUser:1},(error,userek)=>
+  {
     if (error) {
       return next(error)
-    } else {
-      res.json(data)
+    } 
+    if(!userek)
+    {
+      res.status(404).json({ message: 'nie ma usera takiego' });
     }
-  })
+    else{
+      const id=userek.idUser
+      category.create({idThread:generateRandomNumber(1,1000000000),subjectName:req.body.subjectName,user_id:id}, (error, cat) => {
+        if (error) {
+          return next(error)
+        } else {
+          res.json(cat)
+        }
+      })
+
+    }
+
+  }
+  )
+ 
+  
 });
+
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 // Get all category
 categoryRoute.route('/category').get((req, res) => {
-    category.find((error, data) => {
+    category.find({},{_id:0,subjectName:1,date_created:1},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -30,8 +54,8 @@ categoryRoute.route('/category').get((req, res) => {
 })
 
 // Get category by categoryname
-categoryRoute.route('/category/findBycategorysubjectName/:subjectName').get((req, res) => {
-  category.find({subjectName:req.params.subjectName},(error, data) => {
+categoryRoute.route('/category/findBycategorysubjectName').post((req, res) => {
+  category.find({subjectName:req.body.subjectName},{_id:0,subjectName:1,date_created:1,user_id:1},(error, data) => {
   if (error) {
     return next(error)
   } else {
@@ -40,8 +64,8 @@ categoryRoute.route('/category/findBycategorysubjectName/:subjectName').get((req
 })
 })
 // Get category by category id ale autorskie
-categoryRoute.route('/category/findBycategoryidThread/:idThread').get((req, res) => {
-  category.find({idThread:req.params.idThread},(error, data) => {
+categoryRoute.route('/category/findBycategoryidThread').post((req, res) => {
+  category.find({idThread:req.body.idThread},{_id:0,subjectName:1,date_created:1},(error, data) => {
   if (error) {
     return next(error)
   } else {
