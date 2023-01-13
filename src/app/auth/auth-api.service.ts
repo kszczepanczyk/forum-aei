@@ -10,7 +10,7 @@ export class AuthApiService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  login(email: string, password: string): Observable<User>{
-    return this._httpClient.get<User>(`http://localhost:8080/findWithPassword/${email}/${password}`);
+  login(credentials: Object ={}): Observable<any>{
+    return this._httpClient.post(`http://localhost:8080/login`,credentials);
   }
 }

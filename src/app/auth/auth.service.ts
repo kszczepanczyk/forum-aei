@@ -26,8 +26,8 @@ export class AuthService {
     })
   }
 
-  login(email: string, password: string) {
-    return this.authApi.login(email,password).pipe(
+  login(credentials: Object ={}) {
+    return this.authApi.login(credentials).pipe(
       tap((response) => {
         this._authStatusSource.next(true);
         localStorage.setItem('email',response.email);

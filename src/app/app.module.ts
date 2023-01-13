@@ -20,7 +20,6 @@ import { PostItemComponent } from './post/post-item/post-item.component';
 
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './auth/register/register.component';
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
@@ -43,7 +42,6 @@ import { PostService } from './post/post.service';
     EditorComponent,
     PostItemComponent,
     PostDetailsComponent,
-    RegisterComponent,
     FooterComponent
   ],
   imports: [

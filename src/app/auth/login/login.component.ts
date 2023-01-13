@@ -17,15 +17,18 @@ export class LoginComponent {
     email: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required)
   });
+  
 
   constructor(private authService: AuthService, private router: Router) { }
   submitForm(){
     let authObs: Observable<User>;
+    const credentials = this.form.value;
 
     if (this.form.value.email && this.form.value.password) {
-      authObs = this.authService.login(this.form.value.email, this.form.value.password);
+      authObs = this.authService.login(credentials);
     }
     else {
+      
       return;
     }
 
