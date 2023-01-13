@@ -1,12 +1,9 @@
 <div class="auth-page">
-    <div class="container page">
-      <div class="row">
+  <div class="container page d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row">
   
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign in</h1>
-          <p class="text-xs-center">
-            <a>Have an account?</a>
-          </p>
+        <div class="login-box">
+          <h1 class="text-login">Logowanie</h1>
           <div class="alert alert-danger" *ngIf="error">
             <p>{{error}}</p>
           </div>
@@ -27,17 +24,20 @@
                   class="form-control form-control-lg"
                   type="password" />
               </fieldset>
-              <button class="btn btn-lg btn-primary pull-xs-right" type="submit" [disabled]="!form.valid">
-                Sign in
-              </button>
-              <button class="btn btn-lg btn btn-outline-primary pull-xs-right" routerLink="forgotPassword">
-                Forgot password
-              </button>
-            </fieldset>
-          </form>
+
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="button-login btn btn-lg pull-xs-right"  type="submit" [disabled]="!form.valid">
+                  Zaloguj
+                </button>
+        
+              </div>
+              <div class="forgot-pass d-flex justify-content-center align-items-center">
+              <a routerLink="forgotPassword"> Zapomniałeś hasła?</a>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+    
         </div>
   
-      </div>
-    </div>
-  </div>
   

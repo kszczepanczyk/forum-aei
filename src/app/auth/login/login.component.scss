@@ -1,0 +1,42 @@
+
+body {
+    background-color: #FDF7FF;
+}
+
+.login-box{
+    width: 350px;
+    height: 280px;
+    background-color: white;
+    border-radius:20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.auth-page{
+    background-color: #FDF7FF;
+    height: 100vh;
+}
+
+.text-login{
+    margin-top: 20px;  
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.form-group{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.button-login{
+    background-color: #570CFA;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+.forgot-pass{
+    text-align: center;
+}
