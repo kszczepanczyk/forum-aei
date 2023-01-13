@@ -41,17 +41,9 @@ export class EditorComponent implements OnInit {
     //   this.authService.getCurrentUser(),
     //   this.postForm.value['category']
     // )
-    const addedPost = new TmpPost(
-      2,
-      this.authService.currentUser._id,
-      2,
-      this.postForm.value['title'],
-      this.postForm.value['body'],
-      currentDate.toISOString()
-    )
-    this.postService.addPost(addedPost).subscribe(resp => {
-      this.router.navigate(['../dyskusje'],{relativeTo: this.route});
-    });
+    // this.postService.addPost(addedPost).subscribe(resp => {
+    //   this.router.navigate(['../dyskusje'],{relativeTo: this.route});
+    // });
     
   }
 
