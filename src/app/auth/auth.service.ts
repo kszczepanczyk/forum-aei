@@ -32,9 +32,7 @@ export class AuthService {
         this._authStatusSource.next(true);
         localStorage.setItem('email',response.email);
         this.router.navigate(['home']);
-        console.log(response);
         this.currentUser = response;
-        console.log(this.currentUser);
       })
     )
   }
