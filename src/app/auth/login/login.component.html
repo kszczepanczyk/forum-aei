@@ -1,12 +1,8 @@
 <div class="auth-page">
   <div class="container page d-flex justify-content-center align-items-center min-vh-100">
     <div class="row">
-  
         <div class="login-box">
           <h1 class="text-login">Logowanie</h1>
-          <div class="alert alert-danger" *ngIf="error">
-            <p>{{error}}</p>
-          </div>
           <form (ngSubmit)="submitForm()" [formGroup]="form">
             <fieldset>
               <fieldset class="form-group">
@@ -34,6 +30,10 @@
               <div class="forgot-pass d-flex justify-content-center align-items-center">
               <a routerLink="forgotPassword"> Zapomniałeś hasła?</a>
               </div>
+
+              <div class="forgot-pass d-flex justify-content-center align-items-center" *ngIf="error" style="text-transform: uppercase;">
+                <p>{{error}}</p>
+                </div>
               </fieldset>
             </form>
           </div>
