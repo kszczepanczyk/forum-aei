@@ -5,11 +5,13 @@ body {
 
 .login-box{
     width: 350px;
-    height: 280px;
+    height: 300px;
     background-color: white;
     border-radius:20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+
 .auth-page{
     background-color: #FDF7FF;
     height: 100vh;
@@ -17,7 +19,7 @@ body {
 
 .text-login{
     margin-top: 20px;  
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 22px;
 }
@@ -39,4 +41,5 @@ body {
 
 .forgot-pass{
     text-align: center;
+    margin-top:5px;
 }
