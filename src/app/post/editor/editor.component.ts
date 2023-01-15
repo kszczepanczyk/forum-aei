@@ -17,6 +17,9 @@ export class EditorComponent implements OnInit {
   id: number;
   editMode = false;
   postForm: FormGroup;
+  isSubmitting = false;
+  post: Post = {} as Post;
+  error: Object = {};
 
   constructor(private route: ActivatedRoute,
               private postService: PostService,
@@ -32,7 +35,16 @@ export class EditorComponent implements OnInit {
   }
 
   onSubmit(){
-    let currentDate = new Date();
+    this.isSubmitting = true;
+    Object.assign(this.post, this.postForm.value);
+    this.post.username = this.authService.currentUser.username;
+    this.postService.addPost(this.post).subscribe(
+      post => this.router.navigate(['./dyskusje']),
+      err => {
+          this.error = err;
+          this.isSubmitting = false;
+      }
+    )
     // const addedPost = new Post(
     //   this.postForm.value['title'],
     //   this.postForm.value['body'],
@@ -55,8 +67,8 @@ export class EditorComponent implements OnInit {
 
     this.postForm = new FormGroup({
       title: new FormControl(postTitle),
-      body: new FormControl(postBody),
-      category: new FormControl(postCategory)
+      content: new FormControl(postBody),
+      subjectName: new FormControl(postCategory)
     })
   }
 

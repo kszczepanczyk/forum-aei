@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material';
 import { Post } from '../../models/post.model';
-import { User } from '../../models/user.model';
 import { PostService } from '../post.service';
 
 @Component({
@@ -18,6 +18,10 @@ export class PostSectionComponent implements OnInit {
       this.posts = data;
       console.log(this.posts);
     })
+  }
+
+  OnPageChange(event: PageEvent){
+    
   }
 
 }

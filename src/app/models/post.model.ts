@@ -4,14 +4,12 @@ export class Post {
     public title: string;
     public content: string;
     public createdAt: string;
-    public upvotes: number;
-    public author: User;
+    public username: string;
     public category: string
-  constructor( title: string, content: string, createdAt: string,  upvotes: number, author: User, category: string ){
-    this.author = author;
+  constructor( title: string, content: string, createdAt: string, username: string, category: string ){
+    this.username = username;
     this.content = content;
     this.createdAt = createdAt;
-    this.upvotes = upvotes;
     this.title = title;
     this.category = category
   }
