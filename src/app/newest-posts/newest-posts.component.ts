@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../models/post.model';
+import { PostService } from '../post/post.service';
 
 @Component({
   selector: 'app-newest-posts',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newest-posts.component.scss']
 })
 export class NewestPostsComponent implements OnInit {
-
-  constructor() { }
+  latestPosts: Post[];
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+    this.postService.getLatestActivity(3).subscribe(posts => {
+      this.latestPosts = posts
+    })
+
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../models/post.model';
+import { PostService } from '../post/post.service';
 
 @Component({
   selector: 'app-category-section',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorySectionComponent implements OnInit {
 
-  constructor() { }
+  latestActivity: Post[];
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+    this.postService.getLatestActivity(1).subscribe(post => {
+      this.latestActivity = post;
+    })
   }
 
 }

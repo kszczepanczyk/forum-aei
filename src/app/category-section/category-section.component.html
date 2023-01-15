@@ -12,7 +12,7 @@
       <th> <img height="50" src="..\assets\discussion.svg" width="50"></th>
       <th class="dyskusje" scope="row" [routerLink]="['/dyskusje']">DYSKUSJE</th>
       <td>opis</td>
-      <td>autor</td>
+      <td>{{latestActivity[0].date_created | date: 'longDate'}}</td>
     </tr>
     <tr>
       <th> <img height="50" src="..\assets\box.svg" width="50"></th>

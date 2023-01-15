@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
-import { TmpPost } from 'src/app/models/tmppost';
 import { Post } from '../../models/post.model';
 import { PostService } from '../post.service';
 
