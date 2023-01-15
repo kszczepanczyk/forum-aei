@@ -45,17 +45,6 @@ export class EditorComponent implements OnInit {
           this.isSubmitting = false;
       }
     )
-    // const addedPost = new Post(
-    //   this.postForm.value['title'],
-    //   this.postForm.value['body'],
-    //   currentDate.toISOString(),
-    //   0,
-    //   this.authService.getCurrentUser(),
-    //   this.postForm.value['category']
-    // )
-    // this.postService.addPost(addedPost).subscribe(resp => {
-    //   this.router.navigate(['../dyskusje'],{relativeTo: this.route});
-    // });
     
   }
 

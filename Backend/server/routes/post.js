@@ -64,7 +64,7 @@ function generateRandomNumber(min, max) {
 }
 // Get all post
 postRoute.route('/post').get((req, res) => {
-    post.find({},{_id:0,title:1,content:1,date_created:1},(error, data) => {
+    post.find({},{_id:0,idPost:1,title:1,content:1,date_created:1,subjectName:1},(error, data) => {
     if (error) {
       return next(error)
     } else {

@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import localepl from '@angular/common/locales/pl';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +25,9 @@ import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post/post.service';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localepl);
+
 
 @NgModule({
   declarations: [
@@ -52,7 +56,8 @@ import { PostService } from './post/post.service';
     NgbModule,
     HttpClientModule
   ],
-  providers: [PostService, AuthService],
+  providers: [PostService, AuthService,
+  {provide: LOCALE_ID, useValue: 'pl'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
