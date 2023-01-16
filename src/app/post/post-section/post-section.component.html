@@ -14,7 +14,9 @@
   </button>
   <!--do zrobienia ngfor dla postow-->
   <div class="posts-wrapper">
-    <app-post-item *ngFor="let postEl of posts" [post]="postEl"></app-post-item>
+    <app-post-item *ngFor="let postEl of posts | paginate: {itemsPerPage: 5, currentPage: page, totalItems: postsNumber}" [post]="postEl"></app-post-item>
   </div>
-  <!--<mat-paginator [length]="this.posts.length" [pageSize]="10" (page)="OnPageChange($event)"></mat-paginator>-->
+  <pagination-controls (pageChange)="page = $event"
+                      previousLabel="Poprzedni"
+                      nextLabel="Następny"></pagination-controls>
 </div>

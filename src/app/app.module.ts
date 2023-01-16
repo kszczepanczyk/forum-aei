@@ -1,7 +1,7 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import localepl from '@angular/common/locales/pl';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post/post.service';
 import { registerLocaleData } from '@angular/common';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 registerLocaleData(localepl);
 
 
@@ -54,7 +55,9 @@ registerLocaleData(localepl);
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    CalendarModule
   ],
   providers: [PostService, AuthService,
   {provide: LOCALE_ID, useValue: 'pl'}],

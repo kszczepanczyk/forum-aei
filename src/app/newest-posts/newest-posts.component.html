@@ -1,4 +1,7 @@
-<div class="new-post-box">
-    <p>NAJNOWSZE POSTY</p>
-</div>
-
+<table class="new-post-box">
+<tr *ngFor="let post of latestPosts">
+    <td>{{ post.title }}</td>
+    <td>{{ post.content }}</td>
+    <td>{{ post.date_created | date: 'longDate'}}</td>
+  </tr>
+</table>
