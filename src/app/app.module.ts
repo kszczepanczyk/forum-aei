@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post/post.service';
 import { registerLocaleData } from '@angular/common';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 registerLocaleData(localepl);
 
 
@@ -55,7 +56,8 @@ registerLocaleData(localepl);
     FormsModule,
     NgbModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CalendarModule
   ],
   providers: [PostService, AuthService,
   {provide: LOCALE_ID, useValue: 'pl'}],
