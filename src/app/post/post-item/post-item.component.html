@@ -1,10 +1,18 @@
-<a>
-    <div class="list-group-item clearfix">
-        <h4 class="list-group-item-heading">{{post.category}}</h4>
-        <h4 class="list-group-item-heading">{{post.title}}</h4>
-        <h4 class="list-group-item-heading">{{post.content}}</h4>
-        <h4 class="list-group-item-heading"> {{post.date_created | date: 'longDate'}}</h4>
-        <h4 class="list-group-item-heading">{{post.username}}</h4>
+
+
+<div class="container second-segment">
+    <div class="row">
+      <div class="col-4">
+        <p class="list-group-item-heading post-cat">{{post.category}}</p>
+      </div>
+      <div class="col-4">
+        <p class="list-group-item-heading post-title">{{post.title}}</p>
+      </div>
+      <h4 class="list-group-item-heading">{{post.content}}</h4>
+      <div class="col-4 user-name float-start">
+        <p class="list-group-item-heading">{{post.username}}</p>
+        <p class="list-group-item-heading">{{post.date_created | date: 'longDate'}}</p>
+      </div>
     </div>
-</a>
+</div>
 <hr>
