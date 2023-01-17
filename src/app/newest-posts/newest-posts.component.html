@@ -1,7 +1,20 @@
-<table class="new-post-box">
-<tr *ngFor="let post of latestPosts">
-    <td>{{ post.title }}</td>
-    <td>{{ post.content }}</td>
-    <td>{{ post.date_created | date: 'longDate'}}</td>
-  </tr>
+
+<div class="newest">
+
+
+<table class="table">
+  <tbody *ngFor="let post of latestPosts">
+    <tr>
+      <td class="title">{{ post.title }}</td>
+      <td class="content">{{ post.content }}</td>
+      <td class="date">{{ post.date_created | date: 'longDate'}}</td>
+    </tr>
+   <!--- <tr>
+      <td><img height="10" src="..\assets\upvote.svg" width="10"></td>
+      <td><img height="10" src="..\assets\downvote.svg" width="10"></td>
+
+    </tr>-->
+    
+    </tbody>
 </table>
+</div>
