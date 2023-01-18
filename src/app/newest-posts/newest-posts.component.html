@@ -5,8 +5,10 @@
 <table class="table">
   <tbody *ngFor="let post of latestPosts">
     <tr>
-      <td class="title">{{ post.title }}</td>
-      <td class="content">{{ post.content }}</td>
+      <td class="title"><span class="title-click">KATEGORIA{{ post.category }}</span> <br>
+        <span class="vote "><img height="20" src="..\assets\upvote.svg" width="20"> 43
+        <img height="20" src="..\assets\downvote.svg" width="20"> 13</span></td>
+      <td class="content">{{ post.title }}</td>
       <td class="date">{{ post.date_created | date: 'longDate'}}</td>
     </tr>
    <!--- <tr>

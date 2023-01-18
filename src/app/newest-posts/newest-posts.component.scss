@@ -22,14 +22,21 @@ table {
     background-color: white;
     border-radius:20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 700px;
+    width: 850px;
 }
 
 td{
     margin-left: 10px;
+    font: size 18px;
 }
 
-.title:hover{
+.title-click:hover{
     cursor:pointer;
     color: gray;
 }
+
+.vote{
+    font-weight: lighter;
+    font: size 16px;
+}
+
