@@ -1,21 +1,21 @@
 <table class="table">
-  <thead>
-    <tr>
-      <th> <img height="50" src="..\assets\announcements.svg" width="50"></th>
-      <th class="ogl" scope="col"> OGŁOSZENIA</th>
-      <th scope="col">Opis kategorii</th>
-      <th scope="col">Ostatnia aktywność</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <th> <img height="50" src="..\assets\discussion.svg" width="50"></th>
+      <th> <img height="40" src="..\assets\announcements.svg" width="40"></th>
+      <th class="ogl" scope="col"> OGŁOSZENIA</th>
+      <td>Miejsce do zamieszczania ogłoszeń</td>
+      <td>Ostatnia aktywność</td>
+    </tr>
+  
+ 
+    <tr>
+      <th> <img height="40" src="..\assets\discussion.svg" width="40"></th>
       <th class="dyskusje" scope="row" [routerLink]="['/dyskusje']">DYSKUSJE</th>
       <td>opis</td>
       <td>{{latestActivity[0].date_created | date: 'longDate'}}</td>
     </tr>
     <tr>
-      <th> <img height="50" src="..\assets\box.svg" width="50"></th>
+      <th> <img height="40" src="..\assets\box.svg" width="40"></th>
       <th class="arch" scope="row" [routerLink]="['/archiwa']">ARCHIWUM</th>
       <td>opis</td>
       <td>autor</td>
