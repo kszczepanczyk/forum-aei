@@ -37,6 +37,7 @@ export class EditorComponent implements OnInit {
     this.isSubmitting = true;
     Object.assign(this.post, this.postForm.value);
     this.post.username = this.authService.currentUser.username;
+    
     this.postService.addPost(this.post).subscribe(
       post => this.router.navigate(['./dyskusje']),
       err => {
