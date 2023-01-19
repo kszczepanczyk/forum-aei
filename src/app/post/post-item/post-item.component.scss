@@ -1,5 +1,5 @@
 .user-name{
-    text-align: right;
+    text-align: center;
     font-size: 14px;
     font-family: 'Roboto', Medium;
 }
@@ -7,16 +7,35 @@
 .post-cat{
     text-transform: uppercase;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 18px; //nie uwzględniono w layoucie, raczej powinno być mniej
 }
 
 .post-title{
-    text-align: right;
-    font-size: 15px;
-    font-family: 'Roboto', Regular;
-    text-transform: uppercase;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Regular';
 }
 
 .post-title:hover{
     color:gray;
+}
+
+.post-content{
+    text-align: left;
+    font-family: 'Regular';
+    font-size: 14px;
+    line-height: 20.4px;
+}
+
+.post-container{
+    margin-top: 2vh;
+}
+
+.post-user{
+    font-size: 12px;
+}
+
+.post-date{
+    font-weight: lighter;
+    font-size: 12px;
 }

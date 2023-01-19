@@ -14,9 +14,11 @@
   </button>
   <!--do zrobienia ngfor dla postow-->
   <div class="posts-wrapper">
+    <div class="whiteBox"></div>
     <app-post-item *ngFor="let postEl of posts | paginate: {itemsPerPage: 5, currentPage: page, totalItems: postsNumber}" [post]="postEl"></app-post-item>
   </div>
   <pagination-controls (pageChange)="page = $event"
                       previousLabel="Poprzedni"
                       nextLabel="Następny"></pagination-controls>
 </div>
+ 
