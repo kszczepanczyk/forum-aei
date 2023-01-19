@@ -5,13 +5,13 @@ const postSchema = new mongoose.Schema({
     type: Number,
     unique: true
   },
-  user_id: {
-    type: Number,
+  username: {
+    type: String,
     required: true
   },
   thread_id: {
     type: Number,
-    required: true
+    required: true,
   },
   title: {
     type: String,
@@ -24,6 +24,10 @@ const postSchema = new mongoose.Schema({
   date_created: {
     type: Date,
     default: Date.now
+  },
+  subjectname:
+  {
+    type:String,
   }
 });
 

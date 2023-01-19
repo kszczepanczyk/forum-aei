@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post/post.service';
 import { registerLocaleData } from '@angular/common';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { NotFoundComponent } from './not-found/not-found.component';
 registerLocaleData(localepl);
 
 
@@ -47,7 +48,8 @@ registerLocaleData(localepl);
     EditorComponent,
     PostItemComponent,
     PostDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

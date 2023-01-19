@@ -9,12 +9,12 @@ import { PostService } from '../post/post.service';
 })
 export class CategorySectionComponent implements OnInit {
 
-  latestActivity: Post[];
+  latestActivity: string;
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.postService.getLatestActivity(1).subscribe(post => {
-      this.latestActivity = post;
+      this.latestActivity = post[0].date_created;
     })
   }
 
