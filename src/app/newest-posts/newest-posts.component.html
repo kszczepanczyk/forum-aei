@@ -4,12 +4,12 @@
 
 <table class="table">
   <tbody *ngFor="let post of latestPosts">
-    <tr>
-      <td class="title"><span class="title-click">KATEGORIA{{ post.category }}</span> <br>
+    <tr [routerLink]="['/dyskusje', post.idPost]">
+      <td class="title"><span class="title-click">{{ post.subjectname }}</span> <br>
         <span class="vote "><img height="20" src="..\assets\upvote.svg" width="20"> 43
         <img height="20" src="..\assets\downvote.svg" width="20"> 13</span></td>
       <td class="content">{{ post.title }}</td>
-      <td class="date">{{ post.date_created | date: 'longDate'}}</td>
+      <td class="date">{{ post.date_created | date: 'longDate'}} {{post.username}}</td>
     </tr>
    <!--- <tr>
       <td><img height="10" src="..\assets\upvote.svg" width="10"></td>

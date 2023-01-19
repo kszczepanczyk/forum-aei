@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Post } from '../../models/post.model';
@@ -55,9 +55,9 @@ export class EditorComponent implements OnInit {
 
 
     this.postForm = new FormGroup({
-      title: new FormControl(postTitle),
-      content: new FormControl(postBody),
-      subjectName: new FormControl(postCategory)
+      title: new FormControl(postTitle, Validators.required),
+      content: new FormControl(postBody,Validators.required),
+      subjectname: new FormControl(postCategory,Validators.required)
     })
   }
 
