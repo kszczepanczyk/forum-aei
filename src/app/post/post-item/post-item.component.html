@@ -4,12 +4,11 @@
 <div class="container second-segment" [routerLink]="['/dyskusje',post.idPost]">
     <div class="row">
       <div class="col-2">
-        <p class="list-group-item-heading post-cat">PH</p>
-        <p class="list-group-item-heading post-cat">{{post.category}}</p> 
+        <p class="list-group-item-heading post-cat">{{post.subjectname}}</p> 
       </div>
       <div class="col-5">
         <p class="list-group-item-heading post-title">{{post.title}}</p>
-        <p class="list-group-item-heading post-content">{{post.content}}</p>
+        <p class="list-group-item-heading post-content">{{post.content | slice:0:200}} <span *ngIf="post.content.length>200">...</span></p>
       </div>
       <div class="col-4 user-name float-start">
         <p class="list-group-item-heading post-user">{{post.username}}</p>
