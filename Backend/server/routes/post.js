@@ -28,7 +28,7 @@ postRoute.route('/post/add-post').post((req, res, next) => {
     else {
        id=data.idUser
 
-       category.findOne({subjectName:req.body.subjectName},{_id:0,idThread:1},(err,kategoria)=>
+       category.findOne({subjectName:req.body.subjectname},{_id:0,idThread:1},(err,kategoria)=>
        {
         if(err)
         {
@@ -40,11 +40,25 @@ postRoute.route('/post/add-post').post((req, res, next) => {
         }
         else{
           const idCategory=kategoria.idThread
-          post.create({idPost:generateRandomNumber(1,10000000000000),user_id:id,thread_id:idCategory,title:req.body.title,content:req.body.content} ,(error, poscik) => {
+          post.create({idPost:generateRandomNumber(1,10000000000000),username:req.body.username,thread_id:idCategory,title:req.body.title,content:req.body.content,subjectname:req.body.subjectname},(error, poscik) => {
             if (error) {
               return next(error)
             } else {
-              res.json(poscik)
+             
+              post.find({idPost:poscik.idPost},{_id:0,thread_id:0,__v:0},(error,p)=>{
+                if(error)
+                {
+                  return next(error);
+                }else{
+
+
+                  res.json(p);  
+                }
+              })
+              
+                
+            
+              
             }
           })
 
@@ -64,41 +78,79 @@ function generateRandomNumber(min, max) {
 }
 // Get all post
 postRoute.route('/post').get((req, res) => {
-    post.find({},{_id:0,idPost:1,title:1,content:1,date_created:1,subjectName:1},(error, data) => {
+    post.find({},{_id:0,thread_id:0,__v:0},(error, data) => {
     if (error) {
       return next(error)
     } else {
-      res.json(data)
+      
+     
+      res.json(data);
     }
   })
 })
+
+// postRoute.route('/post').get(async (req, res) => {
+//   try {
+//     const data = await post.find({});
+//     let jsonArr = [];
+//     for (const obj in data) {
+//       const kategoria = await category.findOne({idThread: data[obj].thread_id});
+//       const nazwa = kategoria.nazwa;
+
+//       const newPost = {
+//         title: data[obj].title,
+//         content: data[obj].content,
+//         date_created: data[obj].date_created,
+//         _id: data[obj]._id,
+//         idPost: data[obj].idPost,
+//         subjectName: nazwa
+//       };
+//       jsonArr.push(newPost);
+//     }
+//     res.json(jsonArr);
+//   } catch (error) {
+//     return next(error);
+//   }
+// });
 
 // Get post from user
 postRoute.route('/post/findByUser').post((req, res) => {
 
   const name=req.body.username
 
-  user.findOne({username:name},{_id:0,idUser:1},(error,userek)=>
-  {
+  post.find({username:req.body.username},{_id:0,thread_id:0,__v:0},(error, data) => {
     if (error) {
       return next(error)
-    } 
-    if(!userek)
-    {
-      res.status(404).json({ message: 'nie ma usera takiego' });
-    }
+    } else {
+     
 
-    else{
-      const id=userek.idUser
-      post.find({user_id:id},{_id:0,thread_id:1,title:1,content:1,date_created:1},(error, data) => {
-        if (error) {
-          return next(error)
-        } else {
-           res.json(data)
-        }
-      })
+       res.json(data)
     }
   })
+
+  // user.findOne({username:name},{_id:0,idUser:1},(error,userek)=>
+  // {
+  //   if (error) {
+  //     return next(error)
+  //   } 
+  //   if(!userek)
+  //   {
+  //     res.status(404).json({ message: 'nie ma usera takiego' });
+  //   }
+
+  //   else{
+  //     const id=userek.idUser
+  //     post.find({username:req.body.username},{_id:0,idPost:1,title:1,content:1,date_created:1,__v:0,subjectname:1},(error, data) => {
+  //       if (error) {
+  //         return next(error)
+  //       } else {
+         
+
+  //          res.json(data)
+  //       }
+  //     })
+  //   }
+  // })
  
 })
 
@@ -108,22 +160,42 @@ postRoute.route('/post/findByUser').post((req, res) => {
 
 
 // Update post
-postRoute.route('/post/update-post/:id').put((req, res, next) => {
-    post.findByIdAndUpdate(req.params.id, {
-    $set: req.body
-  }, (error, data) => {
-    if (error) {
+postRoute.route('/post/update-post').put((req, res, next) => {
+
+  post.find({idPost:req.body.idPost},{},(error,d)=>{
+    if(error)
+    {
       return next(error);
-      console.log(error)
-    } else {
-      res.json(data)
-      console.log('post updated successfully!')
+    }else{
+
+      post.findByIdAndUpdate(d._id, {
+        username:req.body.username,title:req.body.title
+      }, (error, data) => {
+        if (error) {
+          return next(error);
+          console.log(error)
+        } else {
+          res.json(data)
+          console.log('post updated successfully!')
+        }
+      })
+
     }
+
   })
+   
 })
 // Delete post
-postRoute.route('/post/delete-post/:id').delete((req, res, next) => {
-    post.findByIdAndRemove(req.params.id, (error, data) => {
+postRoute.route('/post/delete-post').delete((req, res, next) => {
+
+  post.find({idPost:req.body.idPost},{_id:1},(error,d)=>{
+    if(error)
+    {
+      return next(error);
+    }else{
+
+     
+    post.findByIdAndRemove(d._id, (error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -131,6 +203,8 @@ postRoute.route('/post/delete-post/:id').delete((req, res, next) => {
         msg: data
       })
     }
+  })
+}
   })
 })
 module.exports = postRoute;

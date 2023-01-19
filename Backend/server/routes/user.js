@@ -30,7 +30,17 @@ userRoute.route('/add-user').post((req, res,next) => {
     if (error) {
       return next(error)
     } else {
-      res.json(req.body)
+      user.find({username:req.body.username},{_id:0,password:0,idUser:0,__v:0},(error, d)=>{
+
+        if(error)
+        {
+          return next(error)
+        }else{
+
+          res.json(d)
+        }
+      })
+      
      
     }
   })
