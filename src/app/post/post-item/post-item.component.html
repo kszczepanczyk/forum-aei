@@ -11,9 +11,10 @@
         <p class="list-group-item-heading post-title">{{post.title}}</p>
         <p class="list-group-item-heading post-content">{{post.content}}</p>
       </div>
-      <div class="col-4 user-name float-start">
-        <p class="list-group-item-heading post-user">{{post.username}}</p>
-        <p class="list-group-item-heading post-date">{{post.date_created | date: 'longDate'}}</p>
+      <div class="col-4 user-name float-left" style="text-align: left;">
+        <span  style="margin-right: 20px; margin-left: 0px;"><img height="60" src="..\assets\gray_circle.svg" width="60"> </span>
+        <span class="list-group-item-heading post-user">{{post.username}}</span>
+        <span class="list-group-item-heading post-date">{{post.date_created | date: 'longDate'}}</span>
       </div>
     </div>
 </div>

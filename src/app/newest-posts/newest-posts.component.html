@@ -5,11 +5,19 @@
 <table class="table">
   <tbody *ngFor="let post of latestPosts">
     <tr>
-      <td class="title"><span class="title-click">KATEGORIA{{ post.category }}</span> <br>
-        <span class="vote "><img height="20" src="..\assets\upvote.svg" width="20"> 43
-        <img height="20" src="..\assets\downvote.svg" width="20"> 13</span></td>
-      <td class="content">{{ post.title }}</td>
-      <td class="date">{{ post.date_created | date: 'longDate'}}</td>
+      
+      <td class="title"><span style="margin-left: 40px;"><span class="title-click">KATEGORIA{{ post.category }}
+      </span> 
+      <!--<span style="font-size:16px"><br>
+        <span class="vote ">
+          <img height="20" src="..\assets\upvote.svg" width="20"> 43
+          <img height="20" src="..\assets\downvote.svg" width="20"> 13</span></span>--></span></td>
+
+      <td class="content"><span style="margin-left: 100px;">{{ post.title }}</span></td>
+      
+      <td class="date">
+       <span style="margin-right: 20px; margin-left: 200px;"><img height="60" src="..\assets\gray_circle.svg" width="60"></span> 
+        {{ post.date_created | date: 'longDate'}}</td>
     </tr>
    <!--- <tr>
       <td><img height="10" src="..\assets\upvote.svg" width="10"></td>
