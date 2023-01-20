@@ -1,0 +1,43 @@
+.wrapper {
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-top: 1vh;
+    width: 800px;
+    height: 200px;
+    background-color: white;
+    border-radius:20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form-control{
+    resize: none;
+}
+
+.form-group{
+    width: 700px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cat-select{
+    width: 500px;
+}
+
+.btn-primary{
+    background-color: #570CFA;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+
+.headline{
+    font-size: 25px;
+    text-align: center;
+}
+
+.space{
+    height: 10px;
+}
