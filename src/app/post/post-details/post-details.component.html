@@ -1,9 +1,27 @@
-<p>{{ post.title }}</p>
-<p>{{ post.content }}</p>
-<p>{{ post.date_created }}</p>
-<p>{{ post.username }}</p>
-<hr />
-<h1>KOMENTARZE</h1>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container page d-flex justify-content-center align-items-center">
+    <div class="row justify-content-md-center">
+        <div class="col-8">
+            <div class="post-content">
+              <div class="post-container">
+                <img src="..\assets\gray_circle.svg" height="70" width="70" alt="user" class="pull-left">
+                <p class="user">NAZWA UŻYTKOWNIKA{{ post.username }} {{ post.title }}</p>
+          
+                  
+                 
+                  <div class="post-text">
+                  <p>  {{ post.content }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime nesciunt dicta necessitatibus error aperiam, maiores aliquid commodi ipsam quibusdam. Voluptatum numquam eligendi minima, ex aliquid maiores inventore minus et ab.  </p>                </div> 
+                  <p class="text-muted">{{ post.date_created }}</p>
+               
+
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    
+    
+
 <hr />
 <div class="wrapper">
   <form>
