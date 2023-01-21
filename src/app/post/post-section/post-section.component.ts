@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/shared/category.service';
 import { Post } from '../../models/post.model';
 import { PostService } from '../post.service';
 
@@ -9,9 +10,13 @@ import { PostService } from '../post.service';
 })
 export class PostSectionComponent implements OnInit {
   posts: Post[];
+  filteredPosts: Post[] = [];
   page: number = 1;
   postsNumber: number;
-  constructor(private postService: PostService) { }
+  subjectNames: any[] = [];
+  selectedSubject = 'all';
+  constructor(private postService: PostService,
+    private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.postService.getAllPostsDb().subscribe(data => {
@@ -22,9 +27,20 @@ export class PostSectionComponent implements OnInit {
         return dateB.getTime() - dateA.getTime();
       })
       this.postsNumber = this.posts.length;
-      console.log(this.posts);
+      this.filteredPosts = this.posts;
+    })
+    this.categoryService.getAllCategory().subscribe(data => {
+      console.log(data);
+      this.subjectNames = data;
     })
   }
-
+  filterPosts() {
+    if (this.selectedSubject === 'all') {
+      this.filteredPosts = this.posts;
+    } else {
+      this.filteredPosts = this.posts.filter(post => post.subjectname === this.selectedSubject);
+    }
+    this.postsNumber = this.filterPosts.length;
+  }
 
 }

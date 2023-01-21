@@ -1,22 +1,15 @@
 <div class="wrapper">
-  <div class="btn-group" appDropdown>
-    <button type="button" class="btn btn-primary dropdown-toggle">
-      Niedzialajacy dropdown <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a style="cursor: pointer">a</a></li>
-      <li><a style="cursor: pointer">b</a></li>
-      <li><a style="cursor: pointer">c</a></li>
-    </ul>
-  </div>
+  <select [(ngModel)]="selectedSubject" (change)="filterPosts()">
+    <option value="all">Wszystkie</option>
+    <option *ngFor="let subject of subjectNames" [value]="subject.subjectName">{{ subject.subjectName }}</option>
+  </select>
   <button class="btn btn-primary" type="submit" [routerLink]="['/edytuj']">
     Dodaj post
   </button>
   <!--do zrobienia ngfor dla postow-->
   <div class="posts-wrapper">
     <div class="whiteBox"></div>
-    <app-post-item *ngFor="let postEl of posts | paginate: {itemsPerPage: 5, currentPage: page, totalItems: postsNumber}" [post]="postEl"></app-post-item>
-  </div>
+    <app-post-item *ngFor="let postEl of filteredPosts | paginate: {itemsPerPage: 5, currentPage: page, totalItems: postsNumber}" [post]="postEl"></app-post-item>
   <pagination-controls (pageChange)="page = $event"
                       previousLabel="Poprzedni"
                       nextLabel="Następny"></pagination-controls>
