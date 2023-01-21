@@ -8,7 +8,7 @@
           <label for="subjectName">Wybierz kategorie</label>
         </div>
         <div class="col">
-          <select class="form-control cat-select" id="subjectName" formControlName="subjectName">
+          <select class="form-control cat-select" id="subjectname" formControlName="subjectname">
             <option>SMIW</option>
             <option>TM</option>
             <option>JA</option>
@@ -27,6 +27,6 @@
     <div class="form-group form-content">
       <textarea class="form-control" id="content" rows="5" formControlName="content" placeholder="Zawartość"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Dodaj post</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Dodaj post</button>
   </form>
 </div>

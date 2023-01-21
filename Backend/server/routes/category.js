@@ -44,7 +44,7 @@ function generateRandomNumber(min, max) {
 }
 // Get all category
 categoryRoute.route('/category').get((req, res) => {
-    category.find({},{_id:0,subjectName:1,date_created:1},(error, data) => {
+  category.find({}, {subjectName: 1, _id:0}, (error, data) => {
     if (error) {
       return next(error)
     } else {

@@ -43,6 +43,9 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'login'
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 
