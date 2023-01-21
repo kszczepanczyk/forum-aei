@@ -10,17 +10,25 @@ app.use(cors());
 let comment = require('../db/models/comment');
 // Add comment
 commentRoute.route('/comment/add-comment').post((req, res, next) => {
-  comment.create(req.body, (error, data) => {
+  comment.create({id:generateRandomNumber(1,10000000000000),post_id:req.body.idPost,content:req.body.content,username:req.body.username}, (error, data) => {
     if (error) {
       return next(error)
     } else {
-      res.json(data)
+      comment.find({id:data.id},{__v:0,post_id:0,_id:0},(err,com)=>{
+
+        res.json(com)
+      })
+      
     }
   })
 });
+
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 // Get all comment
 commentRoute.route('/comment').get((req, res) => {
-    comment.find({},{_id:0,content:1,date_created:1},(error, data) => {
+    comment.find({},{_id:0,content:1,date_created:1,username:1,id:1},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -30,8 +38,8 @@ commentRoute.route('/comment').get((req, res) => {
 })
 
 // Get comment for post
-commentRoute.route('/comment/findByPostID/:id').post((req, res) => {
-  comment.find({post_id:req.params.id},{_id:0,content:1,date_created:1},(error, data) => {
+commentRoute.route('/comment/findByPostID').post((req, res) => {
+  comment.find({post_id:req.body.idPost},{_id:0,content:1,date_created:1,username:1,id:1},(error, data) => {
   if (error) {
     return next(error)
   } else {
