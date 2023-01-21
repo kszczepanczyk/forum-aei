@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Post } from '../../models/post.model';
@@ -12,7 +13,10 @@ import { PostService } from '../post.service';
 export class PostDetailsComponent implements OnInit {
   post: Post;
   id: number;
-
+  
+  commentForm = new FormGroup({
+    content: new FormControl(null, Validators.required)
+  });
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
