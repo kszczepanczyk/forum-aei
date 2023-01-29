@@ -1,45 +1,37 @@
-.one-post{
-    margin-bottom: 20px;
-    margin-top: 20px;
+
+.subject {
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 15%;
+  padding: 0 0;
 }
 
-
-
-.title{
-    font-weight: bold;
-    text-transform: uppercase;
+.date {
+  width: 33%;
 }
-
-.date{
-    font-weight:lighter;
+.content {
     text-align: left;
 }
 
 table {
-    margin: 0 auto; text-align: center;
-    vertical-align: center;
-    width: 50vw;
-    background-color: white;
-    border-radius:20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 850px;
-    border-collapse:separate;
-    
-    
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  width: 50vw;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  //width: 850px;
+  //border-collapse: separate;
 }
 
-td{
-    margin-left: 10px;
-    font: size 18px;
-    
+td {
+  margin-left: 10px;
+  font-size: 18px;
 }
 
-.title-click:hover{
-    cursor:pointer;
-    color: gray;
+.title-click:hover {
+  cursor: pointer;
+  color: gray;
 }
 
-.vote{
-    font-weight: lighter;
-    font: size 16px;
-}

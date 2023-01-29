@@ -1,23 +1,27 @@
 table {
-    margin: 0 auto; text-align: center;
-    vertical-align: center;
-    width: 50vw;
-    background-color: white;
-    border-radius:20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 850px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  width: 50vw;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  font-size:18px;
+}
+.left-align{
+    text-align: left;
+}
+.dyskusje:hover {
+  color: gray;
+  cursor: pointer;
 }
 
-.dyskusje:hover{
-    color: gray;
-    cursor: pointer;
+.arch:hover {
+  color: gray;
+  cursor: pointer;
 }
 
-.arch:hover{
-    color: gray;
-    cursor: pointer;}
-
-.ogl:hover{
-    color: gray;
-    cursor: pointer;
+.ogl:hover {
+  color: gray;
+  cursor: pointer;
 }

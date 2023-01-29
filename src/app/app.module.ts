@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { ReportComponent } from './report/report.component';
 import { NewestPostsComponent } from './newest-posts/newest-posts.component';
@@ -29,6 +28,8 @@ import { registerLocaleData } from '@angular/common';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CommentItemComponent } from './comment/comment-item/comment-item.component';
+import { ProfileMiniComponent } from './profile/profile-mini/profile-mini.component';
+import { ProfileSideComponent } from './profile/profile-side/profile-side.component';
 registerLocaleData(localepl);
 
 
@@ -39,7 +40,6 @@ registerLocaleData(localepl);
     HomeComponent,
     LoginComponent,
     CalendarComponent,
-    ProfileComponent,
     ProfileEditorComponent,
     ReportComponent,
     NewestPostsComponent,
@@ -51,7 +51,9 @@ registerLocaleData(localepl);
     PostDetailsComponent,
     FooterComponent,
     NotFoundComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    ProfileMiniComponent,
+    ProfileSideComponent
   ],
   imports: [
     BrowserModule,
