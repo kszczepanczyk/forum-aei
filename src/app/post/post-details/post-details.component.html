@@ -4,11 +4,9 @@
         <div class="col-8">
             <div class="post-content">
               <div class="post-container">
+                <span class="tytul">{{ post.title }}</span>
                 <img src="..\assets\gray_circle.svg" height="70" width="70" alt="user" class="pull-left">
-                <p class="user">NAZWA UŻYTKOWNIKA{{ post.username }} {{ post.title }}</p>
-          
-                  
-                 
+                <p class="user">NAZWA UŻYTKOWNIKA{{ post.username }}</p> 
                   <div class="post-text">
                   <p>  {{ post.content }} Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime nesciunt dicta necessitatibus error aperiam, maiores aliquid commodi ipsam quibusdam. Voluptatum numquam eligendi minima, ex aliquid maiores inventore minus et ab.  </p>                </div> 
                   <p class="text-muted">{{ post.date_created }}</p>
