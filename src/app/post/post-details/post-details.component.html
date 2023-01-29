@@ -1,10 +1,21 @@
-<p>{{ post.title }}</p>
-<p>{{ post.content }}</p>
-<p>{{ post.date_created }}</p>
-<p>{{ post.username }}</p>
-<hr />
-<h1>KOMENTARZE</h1>
-<hr />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<table class="table">
+                
+    <td class="title">
+        <span style="margin-left: 40px; text-align: left;"><img src="..\assets\gray_circle.svg" height="90" width="90" alt="user" class="pull-left"> <span class="pull-left" style="margin-top: 25px;">
+          {{post.username}} NAZWA <span style="text-align: center;"></span><span style="margin-left: 30px; text-transform: uppercase; font-weight: bolder;">{{post.title}}</span> </span></span>
+        </td>
+    <tr>
+    <td>{{post.content}}</td>
+    </tr>
+                 
+    <tr> <td><p class="text-muted">{{post.date_created}}</p></td></tr>
+               
+
+     </table>
+
+
 <app-comment-item *ngFor="let commentEl of comments" [comment]="commentEl"></app-comment-item>
 <div class="wrapper">
   <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
