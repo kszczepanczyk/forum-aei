@@ -1,25 +1,27 @@
 <table class="table">
   <tbody>
     <tr>
-      <th> <img height="40" src="..\assets\announcements.svg" width="40"></th>
-      <th class="ogl" scope="col"> OGŁOSZENIA</th>
-      <td>Miejsce do zamieszczania ogłoszeń</td>
-      <td>10 stycznia 2023</td>
+      <th><img height="40" src="..\assets\announcements.svg" width="40" /></th>
+      <th class="ogl left-align" scope="col">OGŁOSZENIA</th>
+      <td  class="left-align">Miejsce do zamieszczania ogłoszeń</td>
+      <td><app-profile-mini *ngIf="latestActivity.username" [author]="latestActivity.username" [date]="latestActivity.date | date : 'd MMM y H:mm'" ></app-profile-mini></td>
     </tr>
-  
- 
+
     <tr>
-      <th> <img height="40" src="..\assets\discussion.svg" width="40"></th>
-      <th class="dyskusje" scope="row" [routerLink]="['/dyskusje']">DYSKUSJE</th>
-      <td>opis</td>
-      <td>{{latestActivity.date| date: 'longDate'}} {{latestActivity.author}}</td>
+      <th><img height="40" src="..\assets\discussion.svg" width="40" /></th>
+      <th class="dyskusje left-align" scope="row" [routerLink]="['/dyskusje']">
+        DYSKUSJE
+      </th>
+      <td  class="left-align">Dyskusje na dowolny temat</td>
+      <td>
+        <app-profile-mini *ngIf="latestActivity.username" [author]="latestActivity.username" [date]="latestActivity.date | date : 'd MMM y H:mm'" ></app-profile-mini>
+      </td>
     </tr>
     <tr>
-      <th> <img height="40" src="..\assets\box.svg" width="40"></th>
-      <th class="arch" scope="row" [routerLink]="['/archiwa']">ARCHIWUM</th>
-      <td>opis</td>
-      <td>7 stycznia 2023</td>
+      <th><img height="40" src="..\assets\box.svg" width="40" /></th>
+      <th class="arch left-align" scope="row" [routerLink]="['/archiwa']">ARCHIWUM</th>
+      <td class="left-align">Paczki zip z materiałami z poprzednich lat</td>
+      <td><app-profile-mini *ngIf="latestActivity.username" [author]="'Cloons'" [date]="latestActivity.date | date : 'd MMM y H:mm'" ></app-profile-mini></td>
     </tr>
   </tbody>
 </table>
-

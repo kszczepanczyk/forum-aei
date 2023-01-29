@@ -8,14 +8,14 @@ import { PostService } from '../post/post.service';
   styleUrls: ['./category-section.component.scss'],
 })
 export class CategorySectionComponent implements OnInit {
-  latestActivity: { date: string; author: string } = {date: '', author: ''};
+  latestActivity: { date: string; username: string } = {date: '', username: ''};
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
     this.postService.getLatestActivity(1).subscribe((post) => {
       this.latestActivity = {
         date: post[0].date_created,
-        author: post[0].username,
+        username: post[0].username,
       };
     });
   }

@@ -1,0 +1,28 @@
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: blue;
+  }
+  .profile-container {
+    display: flex;
+    align-items: center;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    text-align: left;
+  }
+  .text-line-1, .text-line-2 {
+    font-size: 12px;
+    margin: 0;
+  }
+  .text-line-1{
+    font-weight:500;
+  }

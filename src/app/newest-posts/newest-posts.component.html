@@ -1,28 +1,22 @@
-
 <div class="newest">
   <table class="table">
     <tbody *ngFor="let post of latestPosts">
       <tr [routerLink]="['/dyskusje', post.idPost]">
-        
-        <td class="title"><span style="margin-left: 40px;"><span class="title-click">PRZEDMIOT{{ post.subjectname }}
-        </span> 
-        <!--<span style="font-size:16px"><br>
-          <span class="vote ">
-            <img height="20" src="..\assets\upvote.svg" width="20"> 43
-            <img height="20" src="..\assets\downvote.svg" width="20"> 13</span></span>--></span></td>
-  
-        <td class="content"><span style="margin-left: 100px;">{{ post.title }}</span></td>
-        
+        <td class="subject">
+            <span class="title-click">{{ post.subjectname }} </span>
+        </td>
+
+        <td class="content title-click">
+          <span >{{ post.title }}</span>
+        </td>
+
         <td class="date">
-         <span style="margin-right: 20px; margin-left: 200px;"><img height="60" src="..\assets\gray_circle.svg" width="60"></span> 
-          {{ post.date_created | date: 'longDate'}}</td>
+          <app-profile-mini
+            [date]="post.date_created | date : 'd MMM y H:mm'"
+            [author]="post.username"
+          ></app-profile-mini>
+        </td>
       </tr>
-     <!--- <tr>
-        <td><img height="10" src="..\assets\upvote.svg" width="10"></td>
-        <td><img height="10" src="..\assets\downvote.svg" width="10"></td>
-  
-      </tr>-->
-      
-      </tbody>
+    </tbody>
   </table>
-  </div>
+</div>

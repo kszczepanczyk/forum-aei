@@ -6,14 +6,12 @@
       <div class="col-2">
         <p class="list-group-item-heading post-cat">{{post.subjectname}}</p> 
       </div>
-      <div class="col-5">
+      <div class="col-6">
         <p class="list-group-item-heading post-title">{{post.title}}</p>
         <p class="list-group-item-heading post-content">{{post.content | slice:0:200}} <span *ngIf="post.content.length>200">...</span></p>
       </div>
-      <div class="col-4 user-name float-left" style="text-align: left;">
-        <span  style="margin-right: 20px; margin-left: 0px;"><img height="60" src="..\assets\gray_circle.svg" width="60"> </span>
-        <span class="list-group-item-heading post-user">{{post.username}}</span>
-        <span class="list-group-item-heading post-date">{{post.date_created | date: 'longDate'}}</span>
+      <div class="col-4 user-name">
+        <app-profile-mini class="profile" [date]="post.date_created | date: 'd MMM y H:mm'" [author]="post.username"></app-profile-mini>
       </div>
     </div>
 </div>

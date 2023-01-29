@@ -15,11 +15,13 @@ export class PostSectionComponent implements OnInit {
   postsNumber: number;
   subjectNames: any[] = [];
   selectedSubject = 'all';
+  isLoading = false;
   constructor(private postService: PostService,
     private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.postService.getAllPostsDb().subscribe(data => {
+      this.isLoading = true;
       this.posts = data;
       this.posts.sort((a, b) => {
         let dateA = new Date(a.date_created);
@@ -33,6 +35,7 @@ export class PostSectionComponent implements OnInit {
       console.log(data);
       this.subjectNames = data;
     })
+    this.isLoading = false;
   }
   filterPosts() {
     if (this.selectedSubject === 'all') {
