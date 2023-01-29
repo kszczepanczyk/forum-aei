@@ -28,8 +28,10 @@ export class PostDetailsComponent implements OnInit {
             this.router.navigate(['/not-found']);
           }
           this.post = post;
+          console.log(this.post)
       });
     });
   }
   
 }
+
