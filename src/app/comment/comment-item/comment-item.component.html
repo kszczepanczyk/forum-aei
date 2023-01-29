@@ -1,4 +1,18 @@
-<p>{{comment.username}}</p>
-<p>{{comment.content}}</p>
-<p>{{comment.date_created}}</p>
-<hr>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<table class="table">
+                
+    <td class="title">
+        <span style="margin-left: 40px; text-align: left;"><img src="..\assets\gray_circle.svg" height="90" width="90" alt="user" class="pull-left"> <span class="pull-left" style="margin-top: 25px;">{{comment.username}}</span>
+        </span></td>
+    <tr>
+    <td>{{comment.content}}</td>
+    </tr>
+                 
+    <tr> <td><p class="text-muted">{{comment.date_created}}</p></td></tr>
+               
+
+     </table>
+
+
+ 
