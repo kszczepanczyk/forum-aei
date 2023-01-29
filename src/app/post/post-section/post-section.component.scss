@@ -1,19 +1,37 @@
 .wrapper {
-    margin: auto;
-    margin-top: 5vh;
-    width: 60vw;
+  margin: auto;
+  margin-top: 5vh;
+  width: 60vw;
+  text-align: right;
 }
 
-.btn-primary{
-    margin-bottom: 5vh;
+.btn-primary {
+  margin-bottom: 5vh;
 }
 
-.posts-wrapper{
-    background-color: white;
-    border-radius:20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.posts-wrapper {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.whiteBox{
-    height: 20px;
+.whiteBox {
+  height: 20px;
+}
+.add-button,
+.category-select {
+  height: 50px;
+  border: 1px #570cfa solid;
+  background-color: #570cfa;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px 20px 0 0;
+}
+.add-button {
+  margin-right: 50px;
+}
+.category-select{
+    outline: none;
+    appearance: none;
+    cursor: pointer;
 }

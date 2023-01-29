@@ -1,43 +1,30 @@
-.user-name{
-    text-align: center;
-    font-size: 14px;
-    font-family: 'Roboto', Medium;
+.post-cat {
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 18px; //nie uwzględniono w layoucie, raczej powinno być mniej
 }
 
-.post-cat{
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 18px; //nie uwzględniono w layoucie, raczej powinno być mniej
+.post-title {
+  text-align: left;
+  font-size: 18px;
+  font-family: "Roboto";
 }
 
-.post-title{
-    text-align: left;
-    font-size: 18px;
-    font-family: 'Roboto';
+.post-title:hover {
+  color: gray;
 }
 
-.post-title:hover{
-    color:gray;
+.post-content {
+  text-align: left;
+  font-family: "Roboto";
+  font-size: 14px;
+  line-height: 20.4px;
 }
 
-.post-content{
-    text-align: left;
-    font-family: 'Roboto';
-    font-size: 14px;
-    line-height: 20.4px;
+.post-container {
+  margin-top: 2vh;
 }
 
-.post-container{
-    margin-top: 2vh;
+.user-name {
+  top: 0;
 }
-
-.post-user{
-    font-size: 12px;
-}
-
-.post-date{
-    font-weight: lighter;
-    font-size: 12px;
-}
-
-.container{font-family: 'Roboto';}
