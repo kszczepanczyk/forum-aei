@@ -23,15 +23,17 @@
     
 
 <hr />
-
+<h1>KOMENTARZE</h1>
+<hr />
+<app-comment-item *ngFor="let commentEl of comments" [comment]="commentEl"></app-comment-item>
 <div class="wrapper">
-  <form>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
     <div class="form-group form-content">
       <textarea
         class="form-control"
         id="content"
         rows="5"
-        formControlName="content"
+        formControlName="contentForm"
         placeholder="Napisz komentarz..."></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Skomentuj</button>

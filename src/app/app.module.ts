@@ -28,6 +28,7 @@ import { PostService } from './post/post.service';
 import { registerLocaleData } from '@angular/common';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CommentItemComponent } from './comment/comment-item/comment-item.component';
 registerLocaleData(localepl);
 
 
@@ -49,7 +50,8 @@ registerLocaleData(localepl);
     PostItemComponent,
     PostDetailsComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CommentItemComponent
   ],
   imports: [
     BrowserModule,

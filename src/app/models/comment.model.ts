@@ -1,8 +1,8 @@
-import { User } from "./user.model";
 
-export interface Comment {
-    id: number;
-    body: string;
-    createdAt: string;
-    author: User;
+
+export class Comment {
+    idPost: number;
+    content: string;
+    date_created: string;
+    username: string;
   }

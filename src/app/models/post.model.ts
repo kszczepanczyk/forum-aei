@@ -1,4 +1,3 @@
-import { User } from "./user.model";
 
 export class Post {
     public idPost: number;
