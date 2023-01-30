@@ -1,13 +1,16 @@
-table {
-    margin: 0 auto; text-align: center;
-    margin-top:15px;
-    vertical-align: center;
-    width: 50vw;
+
+.container{
     background-color: white;
-    border-radius:20px;
+    border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 800px;
-    border-collapse:separate;
-   
-    
+    width: 50vw;
+    margin-top: 2vh;
+    padding: 25px;
+}
+.post-title{
+    font-size:22px ;
+    font-weight: bold;
+}
+.post-content{
+    font-size: 18px;
 }

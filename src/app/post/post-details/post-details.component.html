@@ -1,30 +1,25 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container second-segment">
+  <div class="row">
+    <div class="col-3">
+      <app-profile-mini *ngIf="post.username" [author]="post.username" [date]="post.date_created | date : 'd MMM y H:mm'"></app-profile-mini>
+    </div>
+    <div class="col-9">
+      <p class="list-group-item-heading post-title">{{post.title}}</p>
+      <p class="list-group-item-heading post-content">{{post.content}}</p>
+    </div>
+  </div>
+</div>
+<div class="comment-header second-segment">
+</div>
 
-<table class="table">
-                
-    <td class="title">
-        <span style="margin-left: 40px; text-align: left;"><img src="..\assets\gray_circle.svg" height="90" width="90" alt="user" class="pull-left"> <span class="pull-left" style="margin-top: 25px;">
-          {{post.username}} NAZWA <span style="text-align: center;"></span><span style="margin-left: 30px; text-transform: uppercase; font-weight: bolder;">{{post.title}}</span> </span></span>
-        </td>
-    <tr>
-    <td>{{post.content}}</td>
-    </tr>
-                 
-    <tr> <td><p class="text-muted">{{post.date_created}}</p></td></tr>
-               
 
-     </table>
 
 
 <app-comment-item *ngFor="let commentEl of comments" [comment]="commentEl"></app-comment-item>
 <div class="wrapper">
   <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
     <div class="form-group form-content">
-      <textarea
-        class="form-control"
-        id="content"
-        rows="5"
-        formControlName="contentForm"
+      <textarea class="form-control" id="content" rows="5" formControlName="contentForm"
         placeholder="Napisz komentarz..."></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Skomentuj</button>
