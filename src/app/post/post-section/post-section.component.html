@@ -8,15 +8,15 @@
   <button class="add-button" type="submit" [routerLink]="['/edytuj']">
     Dodaj post
   </button>
-  
-  <div class="posts-wrapper" >
+
+  <div class="posts-wrapper">
     <div class="whiteBox"></div>
     <app-post-item *ngFor="
         let postEl of filteredPosts
           | paginate
             : { itemsPerPage: 5, currentPage: page, totalItems: postsNumber }" [post]="postEl"></app-post-item>
-    
+
   </div>
   <pagination-controls (pageChange)="page = $event" previousLabel="Poprzedni"
-      nextLabel="Następny"></pagination-controls>
+    nextLabel="Następny"></pagination-controls>
 </div>
